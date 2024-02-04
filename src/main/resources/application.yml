@@ -1,7 +1,18 @@
 spring:
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
   datasource:
     url: jdbc:mysql://localhost:3306/quiz-app
     username: cc_quiz
-    password: P@ssW0rd
+    password: P@ssW0rd123
     driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL8Dialect
 
