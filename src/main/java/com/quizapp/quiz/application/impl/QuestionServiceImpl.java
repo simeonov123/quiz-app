@@ -1,9 +1,10 @@
-package com.quizapp.quiz.services;
+package com.quizapp.quiz.application.impl;
 
-import com.quizapp.quiz.DTOs.RequestQuestionDTO;
-import com.quizapp.quiz.DTOs.ResponseQuestionDTO;
-import com.quizapp.quiz.entities.Question;
-import com.quizapp.quiz.repositories.QuestionDAO;
+import com.quizapp.quiz.adapter.web.dto.RequestQuestionDTO;
+import com.quizapp.quiz.adapter.web.dto.ResponseQuestionDTO;
+import com.quizapp.quiz.application.service.QuestionService;
+import com.quizapp.quiz.domain.model.Question;
+import com.quizapp.quiz.domain.port.out.QuestionRepositoryPort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,9 +14,9 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @RequiredArgsConstructor
-public class QuestionService {
+public class QuestionServiceImpl implements QuestionService {
 
-    private final QuestionDAO questionDAO;
+    private final QuestionRepositoryPort questionRepositoryPort;
 
     /**
      * Creates a new question in the database based on the provided DTO.
@@ -41,7 +42,7 @@ public class QuestionService {
         Question question = new Question(requestQuestionDTO.getQuestion(), requestQuestionDTO.getAnswerA(), requestQuestionDTO.getAnswerB(), requestQuestionDTO.getAnswerC(), requestQuestionDTO.getAnswerD(), requestQuestionDTO.getCorrectAnswer());
 
         // Save Question to the database
-        Question savedQuestion = questionDAO.save(question);
+        Question savedQuestion = questionRepositoryPort.save(question);
 
 
         // Map saved entity to response DTO

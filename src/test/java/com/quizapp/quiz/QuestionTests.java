@@ -1,8 +1,8 @@
 package com.quizapp.quiz;
 
-import com.quizapp.quiz.DTOs.RequestQuestionDTO;
-import com.quizapp.quiz.DTOs.ResponseQuestionDTO;
-import com.quizapp.quiz.services.QuestionService;
+import com.quizapp.quiz.adapter.web.dto.RequestQuestionDTO;
+import com.quizapp.quiz.adapter.web.dto.ResponseQuestionDTO;
+import com.quizapp.quiz.application.impl.QuestionServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,13 +14,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class QuestionTests {
 
     @Autowired
-    private QuestionService questionService;
+    private QuestionServiceImpl questionServiceImpl;
 
     @Test
     void createQuestionThenReturn200() {
         RequestQuestionDTO requestQuestionDTO = new RequestQuestionDTO("What's Obama's last name?", "Donald", "Elon", "Barak", "Obama", "Obama");
 
-        ResponseQuestionDTO responseQuestionDTO = questionService.createQuestion(requestQuestionDTO);
+        ResponseQuestionDTO responseQuestionDTO = questionServiceImpl.createQuestion(requestQuestionDTO);
 
 
         assertAll("Response Question DTO validations",

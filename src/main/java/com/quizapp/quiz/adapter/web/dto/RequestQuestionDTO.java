@@ -1,4 +1,4 @@
-package com.quizapp.quiz.DTOs;
+package com.quizapp.quiz.adapter.web.dto;
 
 import jakarta.validation.constraints.NotEmpty;
 import lombok.*;

@@ -1,8 +1,8 @@
-package com.quizapp.quiz.controllers;
+package com.quizapp.quiz.adapter.web.controller;
 
-import com.quizapp.quiz.DTOs.RequestQuestionDTO;
-import com.quizapp.quiz.DTOs.ResponseQuestionDTO;
-import com.quizapp.quiz.services.QuestionService;
+import com.quizapp.quiz.adapter.web.dto.RequestQuestionDTO;
+import com.quizapp.quiz.adapter.web.dto.ResponseQuestionDTO;
+import com.quizapp.quiz.application.impl.QuestionServiceImpl;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,15 +14,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1/question")
 public class QuestionController {
 
-    private final QuestionService questionService;
+    private final QuestionServiceImpl questionServiceImpl;
 
-    public QuestionController(QuestionService questionService) {
-        this.questionService = questionService;
+    public QuestionController(QuestionServiceImpl questionServiceImpl) {
+        this.questionServiceImpl = questionServiceImpl;
     }
 
     @PostMapping("/create-question")
     public ResponseEntity<ResponseQuestionDTO> createContact(
             @Valid @RequestBody RequestQuestionDTO requestQuestionDTO) {
-        return ResponseEntity.ok(questionService.createQuestion(requestQuestionDTO));
+        return ResponseEntity.ok(questionServiceImpl.createQuestion(requestQuestionDTO));
     }
 }

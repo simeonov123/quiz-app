@@ -1,4 +1,4 @@
-package com.quizapp.quiz.entities;
+package com.quizapp.quiz.domain.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
