@@ -1,5 +1,6 @@
-package com.quizapp.quiz.domain.model;
+package com.quizapp.quiz.core.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,6 +23,11 @@ public class Question {
     @GeneratedValue
     private Integer id;
 
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
     @Column(name = "question")
     private String question;
 
@@ -39,16 +45,6 @@ public class Question {
 
     @Column(name = "correct_answer")
     private String correctAnswer;
-
-    public Question(String question, String answerA, String answerB, String answerC, String answerD, String correctAnswer) {
-        this.question = question;
-        this.answerA = answerA;
-        this.answerB = answerB;
-        this.answerC = answerC;
-        this.answerD = answerD;
-        this.correctAnswer = correctAnswer;
-
-    }
 
 
 }

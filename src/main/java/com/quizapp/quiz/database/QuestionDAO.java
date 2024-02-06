@@ -1,7 +1,6 @@
-package com.quizapp.quiz.infrastructure.repository;
+package com.quizapp.quiz.database;
 
-import com.quizapp.quiz.domain.model.Question;
-import com.quizapp.quiz.domain.port.out.QuestionRepositoryPort;
+import com.quizapp.quiz.core.model.Question;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
