@@ -1,4 +1,4 @@
-package com.quizapp.quiz.DTOs;
+package com.quizapp.quiz.database.dto;
 
 import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
@@ -8,12 +8,10 @@ import lombok.*;
  * It contains the question, four possible answers, and the correct answer,
  * with validation constraints to ensure none are empty or null.
  */
-@Getter
-@Setter
-@Builder
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class RequestQuestionDTO {
+public class RequestQuestion {
 
     @NotEmpty(message = "Question can't be empty")
     private String question;

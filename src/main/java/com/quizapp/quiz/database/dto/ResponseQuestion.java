@@ -1,4 +1,4 @@
-package com.quizapp.quiz.DTOs;
+package com.quizapp.quiz.database.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ResponseQuestionDTO {
+public class ResponseQuestion {
 
     private Integer id;
 
